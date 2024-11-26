@@ -2,7 +2,7 @@
 Create a Load Balancer V2ray Config.
 
 # Usage
-Install requirements. Run server.py and access the tool over the opened port.
+Open your terminal and clone the repo. Install requirements. Run server.py and access the tool over the opened port.
 
 ```bash
 git clone https://github.com/Surfboardv2ray/V2ray-Load-Balancer.git
