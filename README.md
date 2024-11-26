@@ -4,6 +4,13 @@ Create a Load Balancer V2ray Config.
 # Usage
 Install requirements. Run server.py and access the tool over the opened port.
 
+```bash
+git clone https://github.com/Surfboardv2ray/V2ray-Load-Balancer.git
+pip install -r V2ray-Load-Balancer/requirements.txt
+python V2ray-Load-Balancer/server.py
+
+```
+
 # Acknowledgements
 v2ray to JSON converter copyrights to [Am-Delta](https://github.com/Am-Delta/v2ray-to-json). They're using Unlicense license for their script.
 
