@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify
 import subprocess
 import json
-import copy  # Import copy module
+import copy
 
 app = Flask(__name__)
 
-# Base configuration template
+# Base
 base_config_template = {
     "burstObservatory": {
         "pingConfig": {
@@ -38,6 +38,7 @@ base_config_template = {
             "tag": "http"
         }
     ],
+    "remarks": "Xray-Load-Balancer (Surfboardv2ray)",
     "log": {"loglevel": "warning"},
     "outbounds": [
         {"protocol": "freedom", "tag": "direct-out"}
@@ -53,14 +54,14 @@ base_config_template = {
             {
                 "selector": [],
                 "strategy": {"type": "leastLoad"},
-                "tag": "public-proxies"
+                "tag": "xray-load-balancer"
             }
         ],
         "domainMatcher": "hybrid",
         "domainStrategy": "IPIfNonMatch",
         "rules": [
             {
-                "balancerTag": "public-proxies",
+                "balancerTag": "xray-load-balancer",
                 "inboundTag": ["socks", "http"],
                 "type": "field"
             }
@@ -75,7 +76,7 @@ def home():
 
 @app.route("/convert", methods=["POST"])
 def convert():
-    # Create a fresh copy of base_config for this request
+
     base_config = copy.deepcopy(base_config_template)
 
     data = request.get_json()
@@ -86,7 +87,6 @@ def convert():
 
     for config in configs:
         try:
-            # Run py on each configuration
             result = subprocess.run(
                 ["python3", "v2tj.py", config],
                 text=True,
