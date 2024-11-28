@@ -19,12 +19,9 @@ python server.py
 
 ![0](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-refiner/90c9fe1c9b4c3836d09e925af2398681343c5ff1/assets/redline.gif)
 
-# Acknowledgements
-🟡 v2ray to JSON converter copyrights to [Am-Delta](https://github.com/Am-Delta/v2ray-to-json). They're using Unlicense license for their script.
-
-🟡 Base JSON dervied from [Xray Proxy Grabber](https://github.com/MrMohebi/xray-proxy-grabber-telegram). They're using MIT License.
-
 ## Supported Porotocls
+
+🟡 Below is the list of supported protocols for creating a Load Balancer Xray config:
 
 - VLESS+GRPC
 - VLESS+GRPC+TLS
@@ -59,3 +56,10 @@ python server.py
 - TROJAN+WS+TLS
 - TROJAN+WS+HTTP
 - TROJAN+WS+HTTP+TLS
+
+![0](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-refiner/90c9fe1c9b4c3836d09e925af2398681343c5ff1/assets/redline.gif)
+
+# Acknowledgements
+🟡 v2ray to JSON converter copyrights to [Am-Delta](https://github.com/Am-Delta/v2ray-to-json). They're using Unlicense license for their script.
+
+🟡 Base JSON dervied from [Xray Proxy Grabber](https://github.com/MrMohebi/xray-proxy-grabber-telegram). They're using MIT License.
