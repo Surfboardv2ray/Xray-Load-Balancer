@@ -62,4 +62,4 @@ python server.py
 # Acknowledgements
 🟡 v2ray to JSON converter copyrights to [Am-Delta](https://github.com/Am-Delta/v2ray-to-json). They're using Unlicense license for their script.
 
-🟡 Base JSON dervied from [Xray Proxy Grabber](https://github.com/MrMohebi/xray-proxy-grabber-telegram). They're using MIT License.
+🟡 Base JSON derived from [Xray Proxy Grabber](https://github.com/MrMohebi/xray-proxy-grabber-telegram). They're using MIT License.
