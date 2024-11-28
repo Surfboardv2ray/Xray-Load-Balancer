@@ -97,10 +97,7 @@
             const resultBox = document.getElementById('result');
             const config = document.getElementById('inputBox').value;
 
-            // Clear the result box before fetching the result
             resultBox.textContent = '';
-
-            // Disable the button during the conversion process
             convertButton.disabled = true;
 
             fetch('/convert', {
@@ -113,12 +110,12 @@
             .then(response => response.json())
             .then(data => {
                 resultBox.textContent = data.result || 'Error: Could not process the configurations.';
-                convertButton.disabled = false; // Enable the button
+                convertButton.disabled = false;
             })
             .catch(error => {
                 resultBox.textContent = 'Error: Failed to connect to the server.';
                 console.error('Error:', error);
-                convertButton.disabled = false; // Enable the button
+                convertButton.disabled = false;
             });
         });
 
