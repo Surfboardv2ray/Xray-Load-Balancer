@@ -21,7 +21,7 @@ python server.py
 
 ## Supported Porotocls
 
-🟡 Below is the list of supported protocols for creating a Load Balancer Xray config:
+🟡 Below is the list of currently supported protocols for creating a Load Balancer Xray config:
 
 - VLESS+GRPC
 - VLESS+GRPC+TLS
