@@ -7,68 +7,125 @@ app = Flask(__name__)
 
 # Base
 base_config_template = {
-    "burstObservatory": {
-        "pingConfig": {
-            "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
-            "destination": "http://www.google.com/gen_204",
-            "interval": "15m",
-            "sampling": 2,
-            "timeout": "3s"
-        },
-        "subjectSelector": []
-    },
-    "dns": {
-        "hosts": {"domain:googleapis.cn": "googleapis.com"},
-        "servers": ["1.1.1.1"]
-    },
-    "inbounds": [
-        {
-            "listen": "127.0.0.1",
-            "port": 10808,
-            "protocol": "socks",
-            "settings": {"auth": "noauth", "udp": True, "userLevel": 8},
-            "sniffing": {"destOverride": ["http", "tls"], "enabled": True},
-            "tag": "socks"
-        },
-        {
-            "listen": "127.0.0.1",
-            "port": 10809,
-            "protocol": "http",
-            "settings": {"userLevel": 8},
-            "tag": "http"
-        }
-    ],
-    "remarks": "Xray-Load-Balancer (Surfboardv2ray)",
-    "log": {"loglevel": "warning"},
-    "outbounds": [
-        {"protocol": "freedom", "tag": "direct-out"}
-    ],
-    "policy": {
-        "levels": {
-            "8": {"connIdle": 300, "downlinkOnly": 1, "handshake": 4, "uplinkOnly": 1}
-        },
-        "system": {"statsOutboundDownlink": True, "statsOutboundUplink": True}
-    },
-    "routing": {
-        "balancers": [
-            {
-                "selector": [],
-                "strategy": {"type": "leastLoad"},
-                "tag": "xray-load-balancer"
-            }
+  "remarks": "Xray-Load-Balancer (Surfboardv2ray)",
+  "log": {
+    "access": "",
+    "error": "",
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "0.0.0.0",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": True,
+        "destOverride": [
+          "http",
+          "tls"
         ],
-        "domainMatcher": "hybrid",
-        "domainStrategy": "IPIfNonMatch",
-        "rules": [
-            {
-                "balancerTag": "xray-load-balancer",
-                "inboundTag": ["socks", "http"],
-                "type": "field"
-            }
-        ]
+        "routeOnly": False
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": True,
+        "allowTransparent": False
+      }
     },
-    "stats": {}
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "0.0.0.0",
+      "protocol": "http",
+      "sniffing": {
+        "enabled": True,
+        "destOverride": [
+          "http",
+          "tls"
+        ],
+        "routeOnly": False
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": True,
+        "allowTransparent": False
+      }
+    },
+    {
+      "tag": "api",
+      "port": 10813,
+      "listen": "127.0.0.1",
+      "protocol": "dokodemo-door",
+      "settings": {
+        "udp": False,
+        "address": "127.0.0.1",
+        "allowTransparent": False
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct-out"
+    }
+  ],
+  "stats": {},
+  "api": {
+    "tag": "api",
+    "services": [
+      "StatsService"
+    ]
+  },
+  "policy": {
+    "system": {
+      "statsOutboundUplink": True,
+      "statsOutboundDownlink": True
+    }
+  },
+  "burstObservatory": {
+    "pingConfig": {
+      "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
+      "destination": "http://www.google.com/gen_204",
+      "interval": "15m",
+      "sampling": 2,
+      "timeout": "3s"
+    },
+    "subjectSelector": []
+  },
+  "dns": {
+    "hosts": {
+      "domain:googleapis.cn": "googleapis.com"
+    },
+    "servers": [
+      "1.1.1.1"
+    ]
+  },
+  "routing": {
+    "balancers": [
+      {
+        "selector": [],
+        "strategy": {
+          "type": "leastLoad"
+        },
+        "tag": "xray-load-balancer"
+      }
+    ],
+    "domainMatcher": "hybrid",
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "balancerTag": "xray-load-balancer",
+        "inboundTag": [
+          "socks",
+          "http"
+        ],
+        "type": "field"
+      }
+    ]
+  }
 }
+
 
 @app.route("/")
 def home():
