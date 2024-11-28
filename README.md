@@ -1,5 +1,12 @@
-# Xray-Load-Balancer
+<h1 align="center">
+  Xray-Load-Balancer
+</h1>
+
+<h2 align="center">
 Create a Load Balancer Xray Config.
+</h2>
+
+![0](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-refiner/90c9fe1c9b4c3836d09e925af2398681343c5ff1/assets/redline.gif)
 
 # Usage
 Open your terminal and git clone the repo. Install requirements. Run server.py and access the webpage over the opened port:
