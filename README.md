@@ -7,16 +7,6 @@ Create a Load Balancer Xray Config.
 </h2>
 
 # Usage
-🟢 Android Termux:
-
-```bash
-git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
-cd Xray-Load-Balancer
-pip install -r requirements.txt
-python server.py
-
-```
-
 🟢 Linux:
 
 ```bash
@@ -29,6 +19,16 @@ git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
 cd Xray-Load-Balancer
 pip3 install -r requirements.txt
 python3 server.py
+
+```
+
+🟢 Android Termux:
+
+```bash
+git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
+cd Xray-Load-Balancer
+pip install -r requirements.txt
+python server.py
 
 ```
 
