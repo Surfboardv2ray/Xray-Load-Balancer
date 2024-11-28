@@ -140,10 +140,29 @@
                 alert('There is no content to copy!');
                 return;
             }
-            navigator.clipboard.writeText(resultContent)
-                .then(() => alert('Content copied to clipboard!'))
-                .catch(err => console.error('Failed to copy text: ', err));
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(resultContent)
+                    .then(() => alert('Content copied to clipboard!'))
+                    .catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        alert('Failed to copy text to clipboard.');
+                    });
+            } else {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = resultContent;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    alert('Content copied to clipboard using fallback!');
+                } catch (err) {
+                    console.error('Fallback failed: ', err);
+                    alert('Failed to copy text using fallback.');
+                }
+            }
         });
+
     </script>
 </body>
 </html>
