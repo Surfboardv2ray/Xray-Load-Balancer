@@ -28,6 +28,8 @@ python3 server.py
 🟢 Android Termux:
 
 ```bash
+apt update
+apt ugprade
 git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
 cd Xray-Load-Balancer
 pip install -r requirements.txt
