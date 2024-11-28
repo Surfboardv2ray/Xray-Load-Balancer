@@ -14,9 +14,12 @@ apt update
 apt ugprade -y
 apt install git -y
 apt install python3-pip -y
+apt install python3-venv -y
 python3 -m pip install --upgrade pip -y
 git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
 cd Xray-Load-Balancer
+python3 -m venv venv
+source venv/bin/activate
 pip3 install -r requirements.txt
 python3 server.py
 
