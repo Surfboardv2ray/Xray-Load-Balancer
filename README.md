@@ -7,7 +7,7 @@ Create a Load Balancer Xray Config.
 </h2>
 
 # Usage
-Open your terminal and git clone the repo. Install requirements. Run server.py and access the webpage over the opened port:
+🟢 Open your terminal and git clone the repo. Install requirements. Run server.py and access the webpage over the opened port:
 
 ```bash
 git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
@@ -20,8 +20,9 @@ python server.py
 ![0](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-refiner/90c9fe1c9b4c3836d09e925af2398681343c5ff1/assets/redline.gif)
 
 # Acknowledgements
-* v2ray to JSON converter copyrights to [Am-Delta](https://github.com/Am-Delta/v2ray-to-json). They're using Unlicense license for their script.
-* 
+🟡 v2ray to JSON converter copyrights to [Am-Delta](https://github.com/Am-Delta/v2ray-to-json). They're using Unlicense license for their script.
+
+🟡
 
 ## Supported Porotocls
 
