@@ -7,7 +7,7 @@ Create a Load Balancer Xray Config.
 </h2>
 
 # Usage
-🟢 Open your terminal and git clone the repo. Install requirements. Run server.py and access the webpage over the opened port:
+🟢 Copy and paste the following to your terminal, and access the webpage over the opened port:
 
 ```bash
 git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
