@@ -1,13 +1,14 @@
-# V2ray-Load-Balancer
-Create a Load Balancer V2ray Config.
+# Xray-Load-Balancer
+Create a Load Balancer Xray Config.
 
 # Usage
-Open your terminal and clone the repo. Install requirements. Run server.py and access the tool over the opened port.
+Open your terminal and git clone the repo. Install requirements. Run server.py and access the webpage over the opened port:
 
 ```bash
-git clone https://github.com/Surfboardv2ray/V2ray-Load-Balancer.git
-pip install -r V2ray-Load-Balancer/requirements.txt
-python V2ray-Load-Balancer/server.py
+git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
+cd Xray-Load-Balancer
+pip install -r requirements.txt
+python server.py
 
 ```
 
