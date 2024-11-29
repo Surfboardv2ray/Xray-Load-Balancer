@@ -54,7 +54,7 @@ from server import app as application
 
 ![0](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-refiner/90c9fe1c9b4c3836d09e925af2398681343c5ff1/assets/redline.gif)
 
-## Supported Porotocls
+## Supported Protocols
 
 🟡 Below is the list of currently supported protocols for creating a Load Balancer Xray config:
 
