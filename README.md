@@ -41,7 +41,7 @@ python server.py
 
 🟢 Python Anywhere
 
-Deploying on [pythonanywhere](https://www.pythonanywhere.com/), run the Linux command on a bash console. Edit your webapp `wsgi.py` file as following:
+Deploying on [pythonanywhere](https://www.pythonanywhere.com/), run the Linux command on a bash console. Edit your webapp `wsgi.py` file as following (replace `your_username` with your own):
 ```python
 import sys
 import os
