@@ -39,6 +39,18 @@ python server.py
 
 ```
 
+🟢 Python Anywhere
+Deploying on [pythonanywhere](https://www.pythonanywhere.com/), run the Linux command. Edit your `wsgi.py` file as following:
+```python
+import sys
+import os
+project_home = '/home/your_username/Xray-Load-Balancer'
+if project_home not in sys.path:
+    sys.path.insert(0, project_home)
+os.chdir(project_home)
+from server import app as application
+```
+
 ![0](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-refiner/90c9fe1c9b4c3836d09e925af2398681343c5ff1/assets/redline.gif)
 
 ## Supported Porotocls
