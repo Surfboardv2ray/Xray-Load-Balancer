@@ -29,7 +29,7 @@ python3 server.py
 
 ```bash
 apt update
-apt ugprade -y
+apt ugprade
 apt install git
 apt install python
 git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
