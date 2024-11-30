@@ -42,6 +42,8 @@ python server.py
 > [!CAUTION]
 > Installation includes git, python, package updates and python requirements. Please note that, specially for running Android Termux locally, it will bypass y/n prompt and default to install without confirmation, resulting in charging you extra for downloaded packages; if not priorly installed.
 
+<br>
+
 🟡 Python Anywhere
 
 Deploying on [pythonanywhere](https://www.pythonanywhere.com/), run the Linux command on a bash console. Edit your webapp `wsgi.py` file as following (replace `your_username` with your own):
