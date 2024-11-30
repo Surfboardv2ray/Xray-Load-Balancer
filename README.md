@@ -30,14 +30,17 @@ python3 server.py
 ```bash
 apt update
 apt ugprade
-apt install git
-apt install python
+apt install git -y
+apt install python -y
 git clone https://github.com/Surfboardv2ray/Xray-Load-Balancer.git
 cd Xray-Load-Balancer
 pip install -r requirements.txt
 python server.py
 
 ```
+
+> [!CAUTION]
+> Installation includes git, python, package updates and python requirements. Please note that, specially for running Android Termux locally, it will bypass y/n prompt and default to install without confirmation, resulting in charging you extra for downloaded packages; if not priorly installed.
 
 🟢 Python Anywhere
 
@@ -52,8 +55,6 @@ os.chdir(project_home)
 from server import app as application
 ```
 
-> [!CAUTION]
-> Installation includes git, python, package updates and python requirements. Please note that, specially for running Android Termux locally, it will bypass y/n prompt and default to install without confirmation, resulting in charging you extra for downloaded packages; if not priorly installed.
 
 ![0](https://raw.githubusercontent.com/Surfboardv2ray/v2ray-refiner/90c9fe1c9b4c3836d09e925af2398681343c5ff1/assets/redline.gif)
 
