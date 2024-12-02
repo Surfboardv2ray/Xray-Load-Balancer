@@ -1,85 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xray Load Balancer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffffff, #f7f7f7);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Xray Load Balancer</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css">
+        <style>
+            body {
+                font-family: 'Vazir', sans-serif;
+                background-color: #fff;
+                color: #333;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+            .container {
+                background: linear-gradient(145deg, #e3e3e3, #ffffff);
+                box-shadow: 5px 5px 10px #ccc, -5px -5px 10px #fff;
+                border-radius: 15px;
+                padding: 20px;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+            }
+            h1 {
+                color: #ff8500;
+                margin-bottom: 20px;
+            }
+            textarea {
+                margin: 20px 0;
+                padding: 0px;
+                font-family: Arial, sans-serif;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                font-size: 18px;
+                width: 100%;
+                box-shadow: inset 3px 3px 5px #b3b3b3, inset -3px -3px 5px #fff;
+                resize: none;
+                overflow-wrap: break-word;
+                white-space: pre-wrap;
+            }
+            button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 16px;
+                color: #fff;
+                background: #ff8500;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            button:hover {
+                background: #ff9800;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+            button:disabled {
+                background: #ccc;
+                cursor: not-allowed;
+            }
+            #result {
+                margin-top: 20px;
+                padding: 10px;
+                background: #f9f9f9;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                overflow: auto;
+                max-height: 200px;
+                text-align: center;
+                white-space: pre-wrap;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
         }
-        h1 {
-            color: #ff6600;
-        }
-        .container {
-            width: 80%;
-            max-width: 600px;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-        }
-        textarea {
-            width: 100%;
-            height: 150px;
-            padding: 0px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
-            resize: none;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background: linear-gradient(45deg, #ff6600, #ff8500);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            overflow: auto;
-            max-height: 200px;
-            white-space: pre-wrap;
-        }
-        .actions {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-    </style>
+            .actions {
+                margin-top: 10px;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+            .footer {
+                margin-top: 20px;
+                text-align: center;
+                font-size: 14px;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 10px;
+            }
+            .footer a {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: #ff8500;
+                color: white;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+                transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .footer a:hover {
+                background: #ff9800;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+            .footer a img {
+                width: 18px;
+                height: 18px;
+            }
+        </style>
 </head>
 <body>
     <div class="container">
         <h1>Xray Load Balancer</h1>
-        <textarea id="inputBox" placeholder="Paste your V2Ray configs (one per line) here..."></textarea>
+        <textarea id="inputBox" placeholder="Paste your V2Ray configs (one per line) here..." style="height: 200px; padding-left: 15px; padding-top: 10px; box-sizing: border-box;"></textarea>
         <button id="convertButton">Convert</button>
         <div id="result"></div>
         <div class="actions">
@@ -90,6 +130,14 @@
                 💾 Save
             </button>
         </div>
+    </div>
+    <div class="footer">
+        <a href="https://t.me/Surfboardv2ray" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+        </a>
+        <a href="https://github.com/Surfboardv2ray" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111425.png" alt="GitHub">
+        </a>
     </div>
     <script>
         document.getElementById('convertButton').addEventListener('click', () => {
