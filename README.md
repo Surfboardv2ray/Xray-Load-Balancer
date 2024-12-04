@@ -7,6 +7,8 @@ Create a Load Balancer Xray Config.
 </h2>
 
 # Usage
+🟢 YouTube Tutorial [here](https://www.youtube.com/watch?v=Cj4nmikSSpA)
+
 🟢 Linux:
 
 ```bash
