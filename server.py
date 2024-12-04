@@ -88,7 +88,7 @@ base_config_template = {
       "connectivity": "http://connectivitycheck.platform.hicloud.com/generate_204",
       "destination": "http://www.google.com/gen_204",
       "interval": "15m",
-      "sampling": 2,
+      "sampling": 10,
       "timeout": "3s"
     },
     "subjectSelector": []
